@@ -81,5 +81,32 @@
                 "cold": "No"
             }
         ]
+    },
+    {
+        "id":"00003",
+        "category":"Want to be special?",
+        "items":[
+            {
+                "id": "030",
+                "itemName": "Extra Ice for drinks",
+                "price":0,
+                "vegan": "",
+                "tag":"",
+                "quantity": 0,
+                "img":"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/10/15/0/fnd_Ice-Cubes-thinkstock.jpg.rend.hgtvcom.476.357.suffix/1413404558868.jpeg",
+                "cold":"Yes"
+            },
+            {
+                "id": "031",
+                "itemName": "Spicy for noodles",
+                "price":0,
+                "vegan": "",
+                "tag":"",
+                "quantity": 0,
+                "img":"https://4.imimg.com/data4/US/OD/MY-22663875/red-chilly-500x500.jpg",
+                "cold": "No"
+            }
+        ]
     }
+
 ]

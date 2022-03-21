@@ -9,9 +9,17 @@ const users = [
         pwd:"1234",
         email: "abc@gmail.com",
         customerName:"taai man",
+        phone:"12348765",
         address:"wan chai",
     },
-
+    {
+        accountID:"abaddon",
+        pwd:"123123",
+        email: "a@gmail.com",
+        customerName:"taan",
+        phone:"765",
+        address:" asdff ",
+    },
 ]
 
 const users_login = [
@@ -45,6 +53,7 @@ router.post('/signMeUp', (req,res)=>{
             pwd: req.body.pwd,
             email: req.body.email,
             customerName:req.body.customerName,
+            phone: req.body.phone,
             address: req.body.address,
         })
 
@@ -53,7 +62,7 @@ router.post('/signMeUp', (req,res)=>{
             pwd: req.body.pwd,
         })
         console.log(users_login)
-        // res.render('regSuccess');
+        res.send('Success');
     } else {
         res.send('failed');
     }
@@ -90,8 +99,10 @@ router.post('/userUpdate',(req,res)=>{
         pwd: req.body.pwd,
         email: req.body.email,
         customerName:req.body.customerName,
+        phone: req.body.phone,
         address: req.body.address,
     }
+    console.log(paylaod);
 
     const stripped = {
         accountID:req.body.accountID,
@@ -104,28 +115,30 @@ router.post('/userUpdate',(req,res)=>{
             accountID:users[index].accountID,
             pwd: users[index].pwd,    
         }
-        if (JSON.stringify(stripped.accountID) === JSON.stringify(element.accountID)) {
+        if (stripped.accountID === element.accountID) {
             users[index] = paylaod
             users_login[index] = stripped
             res.send('Success')
+            break;
         }else{
-            res.send(JSON.stringify(stripped) + JSON.stringify(element))
+            // res.send(JSON.stringify(stripped) + JSON.stringify(element))
+            console.log('not match')
         }
     }
 })
 
 
-router.post('/logmein', (req, res)=>{
-    let login_payload = {
-        email: req.body.accountID,
-        pwd: req.body.pwd,
-    }
-    if (loginVerify(users_login, login_payload)) {
-        res.send(req.body.accountID + ' logged in');
-    } else {
-        res.send('login failed');
-    }
-})
+// router.post('/logmein', (req, res)=>{
+//     let login_payload = {
+//         email: req.body.accountID,
+//         pwd: req.body.pwd,
+//     }
+//     if (loginVerify(users_login, login_payload)) {
+//         res.send(req.body.accountID + ' logged in');
+//     } else {
+//         res.send('login failed');
+//     }
+// })
 
 router.post('/order', (req,res)=>{
     // console.log(req.body)
